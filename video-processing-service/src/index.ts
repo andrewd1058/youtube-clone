@@ -21,7 +21,7 @@ app.post("/process-video", async (req, res) => {
     }
 
     const inputFileName = data.name;
-    const outputFileName = 'processed-${inputFileName}';
+    const outputFileName = `processed-${inputFileName}`;
 
     // Download the raw video from Cloud Storage
     await downloadRawVideo(inputFileName);
