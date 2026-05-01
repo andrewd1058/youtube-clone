@@ -1,0 +1,29 @@
+.uploadInput {
+    display: none;
+}
+
+.uploadText {
+    margin-left: 4px;
+}
+
+.uploadButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    width: 120px;
+    height: 17px;
+    background-color: #065fd4;
+    border: 1px solid gray;
+    border-radius: 24px;
+    color: #ededed;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 10px 20px;
+    white-space: nowrap;
+}
+
+.uploadButton:hover {
+    background-color: #5896e8;
+    border: 1px solid transparent;
+}
