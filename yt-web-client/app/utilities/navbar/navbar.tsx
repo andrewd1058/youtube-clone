@@ -12,10 +12,12 @@ import SignIn from "./sign-in";
 export default function Navbar() {
     // Init user state
     const [user, setUser] = useState<User | null>(null);
+    const [loadingAuth, setLoadingAuth] = useState(true);
 
     useEffect(() => {
         const unsubscribe = onAuthStateChangedHelper((user) => {
             setUser(user);
+            setLoadingAuth(false);
         });
 
         return () => unsubscribe();
@@ -28,7 +30,7 @@ export default function Navbar() {
                     src="/youtube-logo.svg" alt="Youtube Logo" 
                 />
             </Link>
-            <SignIn user={user} />
+            {!loadingAuth && <SignIn user={user} />}
         </nav>
     );
 }
