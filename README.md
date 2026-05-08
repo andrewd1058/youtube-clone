@@ -15,6 +15,16 @@ A full-stack video sharing platform that allows users to upload, process, and st
 - Cloud: Google Cloud (Cloud Run, Pub/Sub)
 - DevOps: Docker
 
+## Architecture
+1. User uploads video via signed URL directly to GCS
+2. Pub/Sub triggers the processing service
+3. Processing service converts to 360p and generates thumbnail
+4. Processed video and thumbnail are stored in GCS
+5. Metadata is saved to Firestore
+6. Web client displays the processed thumbnails with links to stream each video
+
 ## Challenges & Learnings
-- Built an asynchronous video processing services pipeline
-- Designed a scalable architecture using google cloud services
+- Configured CORS on GCS to allow cross-origin video streaming from the browser
+- Added automatic refreshing of the web client when the user signs in/out
+- Utilized remote patterns in Next.js to allow the usage of external thumbnail URLs in the <Image> component
+- Designed the Pub/Sub pipeline to handle duplicate message delivery to the video processing service, preventing duplicate processing jobs
