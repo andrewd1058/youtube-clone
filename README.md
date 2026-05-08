@@ -29,5 +29,5 @@ A full-stack video sharing platform that allows users to upload, process, and st
 ## Challenges & Learnings
 - Configured CORS on GCS to allow cross-origin video streaming from the browser
 - Added automatic refreshing of the web client when the user signs in/out
-- Utilized remote patterns in Next.js to allow the usage of external thumbnail URLs in the <Image> component
+- Utilized remote patterns in Next.js to allow the usage of external thumbnail URLs in the Image component
 - Designed the Pub/Sub pipeline to handle duplicate message delivery to the video processing service, preventing duplicate processing jobs
