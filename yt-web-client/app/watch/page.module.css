@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.video {
+    width: 80vh;
+    height: 60vh;
+}

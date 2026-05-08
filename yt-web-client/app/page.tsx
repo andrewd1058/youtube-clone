@@ -1,12 +1,27 @@
 import Link from "next/link";
+import { getVideos } from "./utilities/firebase/functions";
+import styles from "./page.module.css";
+import Image from "next/image";
 
-export default function Home() {
+const processedVideosBucket = "https://storage.googleapis.com/andrewd1058-yt-processed-videos/";
+
+export default async function Home() {
+  const videos = await getVideos();
+
   return (
-    <main>
-      <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-        To get started, edit the page.tsx file.
-      </h1>
-      <Link href="/watch">Go to Watch</Link>
+    <main className={styles.main}>
+      {
+        videos.map(video => (
+          <Link key={video.id} href={`/watch?v=${video.filename}`}>
+            <Image src={video.thumbnailUrl ? 
+              `${processedVideosBucket}${video.thumbnailUrl}` : `/thumbnail.png`} alt='video'
+              width={400} height={240} className={styles.thumbnail}/>
+          </Link>
+        ))
+      }
     </main>
   );
 }
+
+// Every 30 seconds Next.js will re-render the page on the server and get any new videos
+export const revalidate = 30; // Time period in seconds for how often to fetch a new page
