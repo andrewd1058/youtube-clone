@@ -2,6 +2,9 @@
 
 A full-stack video sharing platform that allows users to upload, process, and stream videos with authentication and scalable cloud infrastructure.
 
+## Demo
+![youtube clone demo gif](./assets/yt-clone-demo.gif)
+
 ## Features
 - Video upload and streaming
 - Asynchronous video processing pipeline
